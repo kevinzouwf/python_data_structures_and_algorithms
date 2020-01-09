@@ -1,0 +1,51 @@
+1、递归的两个特点：调用自身、结束条件
+def func1(x)：
+  if x>0:
+     print(x)
+     func1(x-1)
+
+def func2(x):
+   if x>0:
+      func2(x-1)
+      print(x)
+
+func1(3)  输出的是:3 2 1
+func2(3)  输出的是:1 2 3      
+
+
+斐波那契数列：1,1,2,3,5,8,13
+f[n]=f[n-1]+f[n-2]，f[1]=1，f[2]=1
+
+1、递归算法：时间复杂度很高(O(2^2))
+def fab(n):
+    if n == 1 or n == 2:
+        return 1
+    else:
+        return fab(n-1) + fab(n-2)
+
+print(fab(7))
+
+2、列表循环
+li = [1, 1]
+def fab(n):
+    for i in range(2, n):
+        #print(li[-1] + li[-2])
+        li.append(li[-1]+li[-2])
+    return li
+
+#print(fab(4))
+for i in fab(5):
+    print(i)
+
+3、循环
+def fab(n):
+    a = 1
+    b = 1
+    c = 1
+    for i in range(2,n):
+        c = a +b
+        a = b
+        b = c
+    return c
+
+print(fab(7))
